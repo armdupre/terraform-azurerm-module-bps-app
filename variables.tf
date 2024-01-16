@@ -5,7 +5,7 @@ variable "AdminUserName" {
 }
 
 variable "DisablePasswordAuthentication" {
-	default = true
+	default = false
 	description = "Disable SSH password auth in favor of key-based auth"
 	type = bool
 }
