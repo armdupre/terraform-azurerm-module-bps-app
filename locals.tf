@@ -1,5 +1,5 @@
 locals {
-	AdminPassword = random_string.RandomString
+	AdminPassword = random_string.RandomString.result
 	AdminUserName = var.AdminUserName
 	DisablePasswordAuthentication = var.DisablePasswordAuthentication
 	DnsLabel = "${local.Preamble}-dns"
