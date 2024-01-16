@@ -27,17 +27,6 @@ variable "Eth0SubnetId" {
 	type = string
 }
 
-variable "Eth1PrivateIpAddress" {
-	default = "10.0.10.10"
-	description = "Private IP address associated with the second network interface"
-	type = string
-}
-
-variable "Eth1SubnetId" {
-	description = "Id of the subnet associated with the second network interface"
-	type = string
-}
-
 variable "ImageSku" {
 	default = "Ixia_BreakingPoint_Virtual_Controller_9.30.117_KVM"
 	description = "An instance of an offer, such as a major release of a distribution."
