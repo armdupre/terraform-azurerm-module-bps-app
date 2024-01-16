@@ -17,11 +17,8 @@ resource "azurerm_linux_virtual_machine" "Instance" {
 	}
 	computer_name = local.InstanceName
 	admin_username = local.AdminUserName
+	admin_password = local.AdminPassword
 	disable_password_authentication = local.DisablePasswordAuthentication
-	admin_ssh_key {
-		username = local.AdminUserName
-		public_key = data.azurerm_ssh_public_key.SshKey.public_key
-	}
 	network_interface_ids = [
 		azurerm_network_interface.Eth0.id,
 		azurerm_network_interface.Eth1.id
@@ -32,8 +29,8 @@ resource "azurerm_linux_virtual_machine" "Instance" {
 		azurerm_network_interface.Eth1
 	]
 	timeouts {
-		create = "10m"
-		delete = "20m"
+		create = "9m"
+		delete = "10m"
 	}
 }
 
@@ -107,4 +104,8 @@ resource "time_sleep" "SleepDelay" {
 	depends_on = [
 		azurerm_linux_virtual_machine.Instance
 	]
+}
+
+resource "random_string" "RandomString" {
+	length = 16
 }
