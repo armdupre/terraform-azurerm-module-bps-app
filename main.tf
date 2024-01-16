@@ -23,11 +23,13 @@ resource "azurerm_linux_virtual_machine" "Instance" {
 		public_key = data.azurerm_ssh_public_key.SshKey.public_key
 	}
 	network_interface_ids = [
-		azurerm_network_interface.Eth0.id
+		azurerm_network_interface.Eth0.id,
+		azurerm_network_interface.Eth1.id
 	]
 	boot_diagnostics {}
 	depends_on = [
-		azurerm_network_interface.Eth0
+		azurerm_network_interface.Eth0,
+		azurerm_network_interface.Eth1
 	]
 	timeouts {
 		create = "10m"
@@ -59,6 +61,29 @@ resource "azurerm_network_interface" "Eth0" {
 	depends_on = [
 		azurerm_public_ip.Eth0PublicIpAddress
 	]
+}
+
+resource "azurerm_network_interface" "Eth1" {
+	name = local.Eth1Name
+	location = local.ResourceGroupLocation
+	resource_group_name = local.ResourceGroupName
+	tags = {
+		Owner = local.UserEmailTag
+		Project = local.UserProjectTag
+		ResourceGroup = local.ResourceGroupName
+		Location = local.ResourceGroupLocation
+	}
+	ip_configuration {
+		name = "ipconfig1"
+		private_ip_address = local.Eth1PrivateIpAddress
+		private_ip_address_allocation = "Static"
+		subnet_id = local.Eth1SubnetId
+		primary = "true"
+		private_ip_address_version = "IPv4"
+	}
+	dns_servers = []
+	enable_accelerated_networking = local.EnableAcceleratedNetworking
+	enable_ip_forwarding = local.EnableIpForwarding
 }
 
 resource "azurerm_public_ip" "Eth0PublicIpAddress" {

@@ -7,6 +7,9 @@ locals {
 	Eth0Name = "${local.Preamble}-eth0"
 	Eth0PublicIpAddressName = "${local.Preamble}-eth0-public-ip"
 	Eth0SubnetId = var.Eth0SubnetId
+	Eth1PrivateIpAddress = var.Eth1PrivateIpAddress
+	Eth1Name = "${local.Preamble}-eth1"
+	Eth1SubnetId = var.Eth1SubnetId
 	ImageSku = var.ImageSku
 	InstanceId = var.InstanceId
 	InstanceName = "${local.Preamble}-instance"
