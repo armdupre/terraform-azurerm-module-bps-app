@@ -3,7 +3,7 @@ data "azurerm_shared_image_gallery" "SharedImageGallery" {
 	resource_group_name = local.SharedImageGalleryResourceGroupName
 }
 
-data "azurerm_shared_image" "SharedImageVersion" {
+data "azurerm_shared_image_version" "SharedImageVersion" {
 	name = local.ImageVersion
 	image_name = local.ImageSku
 	gallery_name = local.SharedImageGalleryName
