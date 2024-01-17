@@ -28,8 +28,14 @@ variable "Eth0SubnetId" {
 }
 
 variable "ImageSku" {
-	default = "Ixia_BreakingPoint_Virtual_Controller_9.30.117_KVM"
+	default = "keysight-breakingpoint-virtual-controller"
 	description = "An instance of an offer, such as a major release of a distribution."
+	type = string
+}
+
+variable "ImageVersion" {
+	default = "9.30.2"
+	description = "The version number of an image SKU."
 	type = string
 }
 
@@ -51,13 +57,11 @@ variable "ResourceGroupName" {
 }
 
 variable "SharedImageGalleryName" {
-	default = "bpsve_shared_image_gallery"
 	description = "Id of gallery that contains the application software image used by the deployment"
 	type = string
 }
 
 variable "SharedImageGalleryResourceGroupName" {
-	default = "armdupre-storage-account-2024"
 	description = "Id of container that contains the application software image gallery"
 	type = string
 }
