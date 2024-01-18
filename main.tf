@@ -19,6 +19,7 @@ resource "azurerm_linux_virtual_machine" "Instance" {
 	admin_username = local.AdminUserName
 	admin_password = local.AdminPassword
 	disable_password_authentication = local.DisablePasswordAuthentication
+	custom_data = base64encode(local.init_cli)
 	network_interface_ids = [
 		azurerm_network_interface.Eth0.id
 	]

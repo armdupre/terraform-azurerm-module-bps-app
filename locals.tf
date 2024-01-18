@@ -24,4 +24,5 @@ locals {
 	UserProjectTag = var.UserProjectTag
 	Version = var.Version
 	VmSize = var.VmSize
+	init_cli = var.init_cli
 }

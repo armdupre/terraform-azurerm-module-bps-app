@@ -123,3 +123,11 @@ VmSize must be one of the following sizes:
 		EOF
 	}
 }
+
+variable "init_cli" {
+	default = <<-EOF
+#!/bin/bash -xe
+BLADE_IPS=(10.0.10.11)
+    EOF
+	type = string
+}
