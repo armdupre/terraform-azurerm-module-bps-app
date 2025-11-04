@@ -10,7 +10,17 @@ resource "azurerm_linux_virtual_machine" "Instance" {
 		Location = local.ResourceGroupLocation
 	}
 	size = local.VmSize
-	source_image_id = data.azurerm_shared_image_version.SharedImageVersion.id
+	source_image_reference {
+		publisher = local.MarketplaceImagePublisherId
+		offer = local.MarketplaceImageOfferId
+		sku = local.ImageSku
+		version = local.ImageVersion
+	}
+	plan {
+		publisher = local.MarketplaceImagePublisherId
+		product = local.MarketplaceImageProductId
+		name = local.ImagePlanId
+	}
 	os_disk {
 		caching = "ReadWrite"
 		storage_account_type = "Standard_LRS"
