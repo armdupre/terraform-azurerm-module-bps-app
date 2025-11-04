@@ -23,3 +23,12 @@ output "Instance" {
 		"source_image_reference" : azurerm_linux_virtual_machine.Instance.source_image_reference
 	}
 }
+
+output "MarketplaceAgreement" {
+	description = "Marketplace agreement associated with the vm image"
+	value = {
+		"offer" : data.azurerm_marketplace_agreement.MarketplaceAgreement.offer
+		"plan" : data.azurerm_marketplace_agreement.MarketplaceAgreement.plan
+		"publisher" : data.azurerm_marketplace_agreement.MarketplaceAgreement.publisher
+	}
+}
