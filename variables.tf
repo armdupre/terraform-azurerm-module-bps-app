@@ -56,9 +56,6 @@ variable "ResourceGroupName" {
 	type = string
 }
 
-	type = string
-}
-
 variable "SleepDelay" {
 	default = "7m"
 	description = "Time duration to delay to allow application to perform internal initialization required before use"
