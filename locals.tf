@@ -15,8 +15,6 @@ locals {
 	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}-${local.InstanceId}"
 	ResourceGroupLocation = var.ResourceGroupLocation
 	ResourceGroupName = var.ResourceGroupName
-	SharedImageGalleryName = var.SharedImageGalleryName
-	SharedImageGalleryResourceGroupName = var.SharedImageGalleryResourceGroupName
 	SleepDelay = var.SleepDelay
 	Tag = var.Tag
 	UserEmailTag = var.UserEmailTag
