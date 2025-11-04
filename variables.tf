@@ -56,11 +56,6 @@ variable "ResourceGroupName" {
 	type = string
 }
 
-variable "SharedImageGalleryName" {
-	description = "Id of gallery that contains the application software image used by the deployment"
-	type = string
-}
-
 variable "SharedImageGalleryResourceGroupName" {
 	description = "Id of container that contains the application software image gallery"
 	type = string
