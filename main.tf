@@ -25,7 +25,7 @@ resource "azurerm_linux_virtual_machine" "Instance" {
 		caching = "ReadWrite"
 		storage_account_type = "Standard_LRS"
 	}
-	computer_name = local.InstanceName
+	computer_name = replace(local.InstanceName, "_", "-")
 	admin_username = local.AdminUserName
 	admin_password = local.AdminPassword
 	disable_password_authentication = local.DisablePasswordAuthentication
