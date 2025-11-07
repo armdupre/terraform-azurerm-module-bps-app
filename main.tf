@@ -62,8 +62,8 @@ resource "azurerm_network_interface" "Eth0" {
 		private_ip_address_version = "IPv4"
 	}
 	dns_servers = []
-	enable_accelerated_networking = local.EnableAcceleratedNetworking
-	enable_ip_forwarding = local.EnableIpForwarding
+	accelerated_networking_enabled = local.EnableAcceleratedNetworking
+	ip_forwarding_enabled = local.EnableIpForwarding
 	depends_on = [
 		azurerm_public_ip.Eth0PublicIpAddress
 	]
