@@ -1,5 +1,5 @@
 variable "AdminUserName" {
-	default = "azure"
+	default = "ixia"
 	description = "Id of the VM administrator account"
 	type = string
 }
