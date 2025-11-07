@@ -27,8 +27,11 @@ resource "azurerm_linux_virtual_machine" "Instance" {
 	}
 	computer_name = replace(local.InstanceName, "_", "-")
 	admin_username = local.AdminUserName
-	admin_password = local.AdminPassword
 	disable_password_authentication = local.DisablePasswordAuthentication
+	admin_ssh_key {
+		username = local.AdminUserName
+		public_key = data.azurerm_ssh_public_key.SshKey.public_key
+	}
 	custom_data = base64encode(local.init_cli)
 	network_interface_ids = [
 		azurerm_network_interface.Eth0.id
@@ -90,8 +93,4 @@ resource "time_sleep" "SleepDelay" {
 	depends_on = [
 		azurerm_linux_virtual_machine.Instance
 	]
-}
-
-resource "random_string" "RandomString" {
-	length = 16
 }

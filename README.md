@@ -12,5 +12,6 @@ module "App" {
 	source  = "git::https://github.com/armdupre/terraform-azurerm-module-bps-app.git"
 	Eth0SubnetId = module.Vnet.PublicSubnet.id
 	ResourceGroupName = azurerm_resource_group.ResourceGroup.name
+	SshKeyName = azurerm_ssh_public_key.SshKey.name
 }
 ```
